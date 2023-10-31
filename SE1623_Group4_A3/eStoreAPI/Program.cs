@@ -1,87 +1,64 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using eStoreAPI.Models;
+using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Repositories;
-using Swashbuckle.AspNetCore.Filters;
-using System.Text;
-using System.Text.Json.Serialization;
+using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddDbContext<AppDBContext>(option => {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("MyDb"));
-});
-
-builder.Services.AddControllers();
-builder.Services.AddControllers().AddJsonOptions(x =>
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<IMemberRepository, MemberRepository>();
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IMemberRepository, MemberRepository>();
-
-
-//JWT
-builder.Services.AddSwaggerGen(options =>
+namespace eStoreAPI
 {
-    options.AddSecurityDefinition("oauth2", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    public class Program
     {
-        Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
-        In = ParameterLocation.Header,
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
-    });
+        public static void Main(string[] args)
+        {
+            //Get EDM 
+            ODataConventionModelBuilder edmBuilder = new();
+            edmBuilder.EntitySet<OrderDetail>("OrderDetails");
+            edmBuilder.EntitySet<Order>("Orders");            
+            edmBuilder.EntitySet<Product>("Products");
+            edmBuilder.EntitySet<Member>("Members");
+            edmBuilder.EntitySet<Category>("Categories");
 
-    options.OperationFilter<SecurityRequirementsOperationFilter>();
-});
+            var builder = WebApplication.CreateBuilder(args);
 
+            //Add Service InMemoryData
+            builder.Services.AddDbContext<EStoreContext>();
 
-var secretkey = builder.Configuration["AppSettings:SecretKey"];
-var secretKeyBytes = Encoding.UTF8.GetBytes(secretkey);
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                    {
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
+            builder.Services.AddControllers();
 
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(secretKeyBytes),
+            //Add Service Odata
+            builder.Services.AddControllers().AddOData(opt
+                => opt.Select().Filter().Count().OrderBy().Expand().SetMaxTop(10)
+                .AddRouteComponents("odata", edmBuilder.GetEdmModel()));
 
-                        ClockSkew = TimeSpan.Zero
-                    };
-                });
+            //Setup for json parsing
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
 
-var app = builder.Build();
-using (var scope = app.Services.CreateScope())
-{
-    var dataContext = scope.ServiceProvider.GetRequiredService<AppDBContext>();
-    dataContext.Database.Migrate();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseODataBatching();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+            app.Run();
+        }
+    }
 }
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthentication();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
