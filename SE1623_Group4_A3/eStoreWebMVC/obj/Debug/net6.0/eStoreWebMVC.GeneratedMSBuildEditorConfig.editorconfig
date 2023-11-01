@@ -5,117 +5,116 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = eStoreWebMVC
 build_property.RootNamespace = eStoreWebMVC
-build_property.ProjectDir = F:\TERM8\PRN231\PRN231-ASS3-4\SE1623_Group4_A3\eStoreWebMVC\
+build_property.ProjectDir = C:\Users\Admin\Desktop\Assigment3\PRN231-ASS3-4\PRN231-ASS3-4\SE1623_Group4_A3\eStoreWebMVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\TERM8\PRN231\PRN231-ASS3-4\SE1623_Group4_A3\eStoreWebMVC
+build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\Assigment3\PRN231-ASS3-4\PRN231-ASS3-4\SE1623_Group4_A3\eStoreWebMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Home/Index.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Home/Privacy.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Create.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Delete.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Details.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Edit.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Index.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Login.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Members/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/OrderDetails/Create.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/OrderDetails/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/OrderDetails/Delete.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/OrderDetails/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Create.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Delete.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Details.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Edit.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Index.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Create.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Delete.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Details.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Edit.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Index.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/Error.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/_LoginPartials.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/_LoginPartials.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/_ViewImports.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/_ViewStart.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/TERM8/PRN231/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/_Layout.cshtml]
+[C:/Users/Admin/Desktop/Assigment3/PRN231-ASS3-4/PRN231-ASS3-4/SE1623_Group4_A3/eStoreWebMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5evame2bpx

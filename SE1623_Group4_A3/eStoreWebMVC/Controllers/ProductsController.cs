@@ -90,10 +90,10 @@ namespace eStoreAPI.Views
             {
                 apiUrl += $"?$filter=UnitPrice eq {searchString}";
             }
-            var products = await GetApi<List<Product>>(apiUrl, true);
-            return Json(products);
+            //var products = await GetApi<List<Product>>(apiUrl, true);
+            //return Json(products);
 
-            //return View(await GetApi<List<Product>>(apiUrl, true));
+            return View(await GetApi<List<Product>>(apiUrl, true));
         }
 
         [HttpGet]

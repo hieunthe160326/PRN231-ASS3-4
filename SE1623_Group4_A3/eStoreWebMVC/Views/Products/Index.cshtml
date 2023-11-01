@@ -130,23 +130,6 @@ else
             });
         }
 
-        function loadProducts() {
-            var searchType = $("#searchType").val();
-            var searchString = $("#searchString").val();
-
-            $.ajax({
-                url: "/Products/Index",
-                method: "GET",
-                data: { searchType: searchType, searchString: searchString },
-                success: function (data) {
-                    displayProducts(data);
-                },
-                error: function () {
-                    alert("An error occurred while loading products.");
-                }
-            });
-        }
-
         function loadAllProducts() {
             var table = $("<table class='table'></table>");
             var thead = $("<thead></thead>").append(
@@ -162,7 +145,7 @@ else
             var tbody = $("<tbody></tbody>"); 
 
             var productListDiv = $("#productListDiv");
-            productListDiv.empty();
+            //productListDiv.empty();
             productListDiv.append(table);
 
             $.ajax({
@@ -170,7 +153,8 @@ else
                 type: "get",
                 contentType: "application/json",
                 success: function (result, status, xhr) {
-                    $.each(result, function (index, product) {
+                    $.each(result.value, function (index, product) {
+                        console.log(result);
                         var row = $("<tr></tr>").append(
                             "<td>" + product.ProductName + "</td>" +
                             "<td>" + product.Weight + "</td>" +
