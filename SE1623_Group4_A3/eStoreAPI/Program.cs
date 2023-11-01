@@ -1,4 +1,4 @@
-using eStoreAPI.Models;
+﻿using eStoreAPI.Models;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
@@ -36,7 +36,16 @@ namespace eStoreAPI
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
-
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsPolicy", builder =>
+                {
+                    builder.WithOrigins("http://localhost:5072") // Thay đổi thành nguồn của bạn.
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowCredentials();
+                });
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -55,7 +64,7 @@ namespace eStoreAPI
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors("MyCorsPolicy");
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.Run();

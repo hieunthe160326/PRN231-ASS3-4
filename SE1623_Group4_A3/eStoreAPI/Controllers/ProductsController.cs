@@ -1,4 +1,5 @@
 ﻿using eStoreAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eStoreAPI.Controllers
 {
+    [EnableCors("MyCorsPolicy")]
     public class ProductsController : ODataController
     {
         private readonly EStoreContext _context;
