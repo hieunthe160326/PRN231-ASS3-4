@@ -9,6 +9,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using eStoreWebMVC.Controllers;
 using eStoreWebMVC.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -89,7 +90,10 @@ namespace eStoreAPI.Views
             {
                 apiUrl += $"?$filter=UnitPrice eq {searchString}";
             }
-            return View(await GetApi<List<Product>>(apiUrl, true));
+            var products = await GetApi<List<Product>>(apiUrl, true);
+            return Json(products);
+
+            //return View(await GetApi<List<Product>>(apiUrl, true));
         }
 
         [HttpGet]

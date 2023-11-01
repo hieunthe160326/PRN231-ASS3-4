@@ -1,4 +1,4 @@
-﻿@model List<eStoreWebMVC.Models.Product>
+﻿@*@model List<eStoreWebMVC.Models.Product>
 
 
 <h1>Product</h1>
@@ -80,5 +80,164 @@ else
 {
     <h5 class="text-danger text-capitalize">Not Products Was Found</h5>
 }
+*@
 
+@model List<eStoreWebMVC.Models.Product>
+
+<h1>Product</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="mb-3">
+    <label for="searchType" class="form-label">Search by:</label>
+    <select id="searchType" name="searchType" class="form-select">
+        <option value="name">Product Name</option>
+        <option value="unitPrice">Unit Price</option>
+    </select>
+</div>
+<div class="mb-3">
+    <label for="searchString" class="form-label">Search:</label>
+    <input type="text" id="searchString" name="searchString" class="form-control">
+</div>
+<button type="button" id="searchButton" class="btn btn-primary">Search</button>
+
+<div id="productListDiv">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchButton").click(function () {
+            loadProducts();
+        });
+        loadAllProducts();
+        function loadProducts() {
+            var searchType = $("#searchType").val();
+            var searchString = $("#searchString").val();
+
+            $.ajax({
+                url: "http://localhost:5273/odata/Products",
+                method: "GET",
+                data: { searchType: searchType, searchString: searchString },
+                success: function (data) {
+                    displayProducts(data);
+                },
+                error: function () {
+                    alert("An error occurred while loading products.");
+                }
+            });
+        }
+
+        function loadProducts() {
+            var searchType = $("#searchType").val();
+            var searchString = $("#searchString").val();
+
+            $.ajax({
+                url: "/Products/Index",
+                method: "GET",
+                data: { searchType: searchType, searchString: searchString },
+                success: function (data) {
+                    displayProducts(data);
+                },
+                error: function () {
+                    alert("An error occurred while loading products.");
+                }
+            });
+        }
+
+        function loadAllProducts() {
+            var table = $("<table class='table'></table>");
+            var thead = $("<thead></thead>").append(
+                "<tr>" +
+                "<th>Product Name</th>" +
+                "<th>Weight</th>" +
+                "<th>Unit Price</th>" +
+                "<th>Units In Stock</th>" +
+                "<th>Category</th>" +
+                "<th></th>" +
+                "</tr>"
+            );
+            var tbody = $("<tbody></tbody>"); 
+
+            var productListDiv = $("#productListDiv");
+            productListDiv.empty();
+            productListDiv.append(table);
+
+            $.ajax({
+                url: "http://localhost:5273/odata/Products",
+                type: "get",
+                contentType: "application/json",
+                success: function (result, status, xhr) {
+                    $.each(result, function (index, product) {
+                        var row = $("<tr></tr>").append(
+                            "<td>" + product.ProductName + "</td>" +
+                            "<td>" + product.Weight + "</td>" +
+                            "<td>" + product.UnitPrice + "</td>" +
+                            "<td>" + product.UnitInStock + "</td>" +
+                            "<td>" + product.CategoryId + "</td>" +
+                            "<td>" +
+                            "<a asp-action='Edit' asp-route-id='" + product.ProductId + "'>Edit</a>" +
+                            "<a asp-action='Details' asp-route-id='" + product.ProductId + "'>Details</a>" +
+                            "<a asp-action='Delete' asp-route-id='" + product.ProductId + "'>Delete</a>" +
+                            "</td>"
+                        );
+                        tbody.append(row);
+                    });
+                },
+                error: function () {
+                    alert("An error occurred while loading products.");
+                }
+            });
+
+            table.append(thead);
+            table.append(tbody); 
+        }
+
+
+        function displayProducts(products) {
+            var productListDiv = $("#productListDiv");
+            productListDiv.empty();
+
+            if (products && products.length > 0) {
+                var table = $("<table class='table'></table>");
+                var thead = $("<thead></thead>").append(
+                    "<tr>" +
+                    "<th>Product Name</th>" +
+                    "<th>Weight</th>" +
+                    "<th>Unit Price</th>" +
+                    "<th>Units In Stock</th>" +
+                    "<th>Category</th>" +
+                    "<th></th>" +
+                    "</tr>"
+                );
+                var tbody = $("<tbody></tbody>");
+
+                $.each(products, function (index, product) {
+                    var row = $("<tr></tr>").append(
+                        "<td>" + product.ProductName + "</td>" +
+                        "<td>" + product.Weight + "</td>" +
+                        "<td>" + product.UnitPrice + "</td>" +
+                        "<td>" + product.UnitInStock + "</td>" +
+                        "<td>" + product.CategoryId + "</td>" +
+                        "<td>" +
+                        "<a asp-action='Edit' asp-route-id='" + product.ProductId + "'>Edit</a> | " +
+                        "<a asp-action='Details' asp-route-id='" + product.ProductId + "'>Details</a> | " +
+                        "<a asp-action='Delete' asp-route-id='" + product.ProductId + "'>Delete</a>" +
+                        "</td>"
+                    );
+
+                    tbody.append(row);
+                });
+
+                table.append(thead);
+                table.append(tbody);
+                productListDiv.append(table);
+            } else {
+                productListDiv.append("<h5 class='text-danger text-capitalize'>No Products Were Found</h5>");
+            }
+        }
+    });
+</script>
 

@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+
 namespace eStoreWebMVC
 {
     public class Program
@@ -13,6 +16,10 @@ namespace eStoreWebMVC
             {
                 options.IdleTimeout = TimeSpan.FromHours(8);
             });
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var app = builder.Build();
@@ -22,6 +29,7 @@ namespace eStoreWebMVC
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseCors();
             app.UseStaticFiles();
             app.UseSession();
 

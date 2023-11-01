@@ -12130,23 +12130,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\TERM8\\PRN231\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\eStoreAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Assigment3\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\eStoreAPI.csproj",
       "projectName": "eStoreAPI",
-      "projectPath": "F:\\TERM8\\PRN231\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\eStoreAPI.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "F:\\TERM8\\PRN231\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Assigment3\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\eStoreAPI.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\Assigment3\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -12225,7 +12225,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.416\\RuntimeIdentifierGraph.json"
       }
     }
   }
