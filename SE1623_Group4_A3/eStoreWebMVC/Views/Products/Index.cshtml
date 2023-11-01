@@ -160,13 +160,17 @@ else
                             "<td>" + product.Weight + "</td>" +
                             "<td>" + product.UnitPrice + "</td>" +
                             "<td>" + product.UnitInStock + "</td>" +
-                            "<td>" + product.CategoryId + "</td>" +
-                            "<td>" +
-                            "<a asp-action='Edit' asp-route-id='" + product.ProductId + "'>Edit</a>" +
-                            "<a asp-action='Details' asp-route-id='" + product.ProductId + "'>Details</a>" +
-                            "<a asp-action='Delete' asp-route-id='" + product.ProductId + "'>Delete</a>" +
-                            "</td>"
+                            "<td>" + product.CategoryId + "</td>" 
                         );
+
+                        var actions = $("<td></td>").append(
+                            '<a href="/Products/Edit/' + product.ProductId + '">Edit</a> | ' +
+                            '<a href="/Products/Details/' + product.ProductId + '">Details</a> | ' +
+                            '<a href="/Products/Delete/' + product.ProductId + '">Delete</a>'
+                        );
+
+
+                        row.append(actions);
                         tbody.append(row);
                     });
                 },
