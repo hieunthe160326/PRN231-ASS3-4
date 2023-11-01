@@ -3,12 +3,48 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div id="memberList">
+
+</div>
+<script>
+    $(document).ready(function () {
+        ShowAllMembers();
+
+        function ShowAllMembers(){
+            $("table tbody").html("");
+            $.ajax({
+                url: "http://localhost:5273/odata/Members",
+                type: "get",
+                contentType: "application/json",
+                success: function (result, status, xhr) {
+                    console.log(result)
+                    $.each(result, function (index, value) {
+                        $("tbody").append($("<tr>"));
+                        appendElement = $("tbody tr").last();
+                        appendElement.append($("<td>").html(value["Email"]));
+                        appendElement.append($("<td>").html(value["CompanyName"]));
+                        appendElement.append($("<td>").html(value["City"]));
+                        appendElement.append($("<td>").html(value["Country"]));
+                        appendElement.append($("<td>").html(value["Password"]));
+
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr)
+                }
+            });
+        }
+    });
+</script>
+@* 
 <table class="table">
     <thead>
         <tr>
@@ -56,4 +92,4 @@
         </tr>
 }
     </tbody>
-</table>
+</table> *@

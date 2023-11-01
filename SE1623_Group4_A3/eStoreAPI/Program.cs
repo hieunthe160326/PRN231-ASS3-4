@@ -1,4 +1,4 @@
-using eStoreAPI.Models;
+﻿using eStoreAPI.Models;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
@@ -24,6 +24,17 @@ namespace eStoreAPI
             builder.Services.AddDbContext<EStoreContext>();
 
             builder.Services.AddControllers();
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsPolicy", builder =>
+                {
+                    builder.WithOrigins("http://localhost:5072") // Thay đổi thành nguồn của bạn.
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowCredentials();
+                });
+            });
 
             //Add Service Odata
             builder.Services.AddControllers().AddOData(opt
@@ -55,6 +66,8 @@ namespace eStoreAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("MyCorsPolicy");
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 

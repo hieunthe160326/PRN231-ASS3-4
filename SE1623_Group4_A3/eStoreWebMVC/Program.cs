@@ -14,7 +14,10 @@ namespace eStoreWebMVC
                 options.IdleTimeout = TimeSpan.FromHours(8);
             });
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -28,7 +31,7 @@ namespace eStoreWebMVC
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
