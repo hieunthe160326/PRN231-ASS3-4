@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X6UjEh6xdqbBkHRc1Ll8oPd9+Mdf+kR0nQnpiJe3XFsnnRUkx+3yoLT+vvkMo3mSNg6hgIiGjUdnIkzAuZnFZQ==",
+  "dgSpecHash": "F83hz5LPnsWmDqrssdb8wCEiUfDiBmt2gqwJfZpHVSAP/e3vmPowg9nWDCk8rAhjtX6Oe28Q2rrd5HnrWw9ymg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Assigment3\\PRN231-ASS3-4\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\eStoreAPI.csproj",
+  "projectFilePath": "D:\\FULearning\\Semester8\\PRN231\\PRN231-ASS3-4\\SE1623_Group4_A3\\eStoreAPI\\eStoreAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

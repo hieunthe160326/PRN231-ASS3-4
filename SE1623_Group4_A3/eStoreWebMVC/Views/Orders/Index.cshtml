@@ -1,4 +1,4 @@
-﻿@model IEnumerable<eStoreWebMVC.Models.Order>
+﻿@*@model IEnumerable<eStoreWebMVC.Models.Order>
 
 @{
     ViewData["Title"] = "Index";
@@ -64,3 +64,118 @@
         }
     </tbody>
 </table>
+
+
+*@
+
+@model List<eStoreWebMVC.Models.Order>
+
+<h1>Order</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    function loadAllOrders() {
+        var table = $("<table class='table'></table>");
+        var thead = $("<thead></thead>").append(
+            "<tr>" +
+            "<th>OrderId</th>" +
+            "<th>MemberId</th>" +
+            "<th>Order Date</th>" +
+            "<th>Required Date</th>" +
+            "<th>Freight</th>" +
+            "<th></th>" +
+            "</tr>"
+        );
+        var tbody = $("<tbody></tbody>");
+
+        var orderListDiv = $("#orderListDiv");
+        orderListDiv.append(table);
+
+        $.ajax({
+            url: "http://localhost:5273/odata/Orders",
+            type: "get",
+            contentType: "application/json",
+            success: function (result, status, xhr) {
+                $.each(result.value, function (index, order) {
+                    console.log(result);
+                    var row = $("<tr></tr>").append(
+                        "<td>" + order.OrderId + "</td>" +
+                        "<td>" + order.MemberId + "</td>" +
+                        "<td>" + order.OrderDate + "</td>" +
+                        "<td>" + order.RequiredDate + "</td>" +
+                        "<td>" + order.Freight + "</td>"
+                    );
+
+                    var actions = $("<td></td>").append(
+                        '<a href="/Orders/Edit/' + order.OrderID + '">Edit</a> | ' +
+                        '<a href="/Orders/Details/' + order.OrderID + '">Details</a> | ' +
+                        '<a href="/Orders/Delete/' + order.OrderID + '">Delete</a>'
+                    );
+
+
+                    row.append(actions);
+                    tbody.append(row);
+                });
+            },
+            error: function () {
+                alert("An error occurred while loading orders.");
+            }
+        });
+
+        table.append(thead);
+        table.append(tbody);
+    }
+
+
+    function displayOrders(orders) {
+        var orderListDiv = $("#orderListDiv");
+        orderListDiv.empty();
+
+        if (orders && orders.length > 0) {
+            var table = $("<table class='table'></table>");
+            var thead = $("<thead></thead>").append(
+                "<tr>" +
+                "<th>OrderId</th>" +
+                "<th>MemberId</th>" +
+                "<th>Order Date</th>" +
+                "<th>Required Date</th>" +
+                "<th>Freight</th>" +
+                "<th></th>" +
+                "</tr>"
+            );
+            var tbody = $("<tbody></tbody>");
+
+            $.each(orders, function (index, order) {
+                var row = $("<tr></tr>").append(
+                    "<td>" + order.OrderId + "</td>" +
+                    "<td>" + order.MemberId + "</td>" +
+                    "<td>" + order.OrderDate + "</td>" +
+                    "<td>" + order.RequiredDate + "</td>" +
+                    "<td>" + order.Freight + "</td>" +
+                    "<td>" +
+                    "<a asp-action='Edit' asp-route-id='" + order.OrderId + "'>Edit</a> | " +
+                    "<a asp-action='Details' asp-route-id='" + order.OrderId + "'>Details</a> | " +
+                    "<a asp-action='Delete' asp-route-id='" + order.OrderId + "'>Delete</a>" +
+                    "</td>"
+                );
+
+                tbody.append(row);
+            });
+
+            table.append(thead);
+            table.append(tbody);
+            orderListDiv.append(table);
+        } else {
+            orderListDiv.append("<h5 class='text-danger text-capitalize'>No Order Were Found</h5>");
+        }
+    }
+        });
+</script>
+
+
