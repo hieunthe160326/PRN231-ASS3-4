@@ -75,11 +75,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
+<div id="orderListDiv"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-
+    $(document).ready(function () {
+         loadAllOrders();
+        
     function loadAllOrders() {
         var table = $("<table class='table'></table>");
         var thead = $("<thead></thead>").append(
