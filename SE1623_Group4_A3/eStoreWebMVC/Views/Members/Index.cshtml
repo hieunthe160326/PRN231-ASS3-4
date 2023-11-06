@@ -9,51 +9,112 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Email
-            </th>
-            <th>
-                CompanyName
-            </th>
-            <th>
-                City
-            </th>
-            <th>
-                Country
-            </th>
-            <th>
-                Password
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MemberId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MemberId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div id="memberListDiv">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        loadAllMembers();
+
+        function loadAllMembers() {
+            var table = $("<table class='table'></table>");
+            var thead = $("<thead></thead>").append(
+                "<tr>" +
+                "<th></th>" +
+                "<th>Email</th>" +
+                "<th>Company Name</th>" +
+                "<th>City</th>" +
+                "<th>Country</th>" +
+                "<th>Password</th>" +
+                "<th></th>" +
+                "</tr>"
+            );
+            var tbody = $("<tbody></tbody>");
+
+            var memberListDiv = $("#memberListDiv");
+            //productListDiv.empty();
+            memberListDiv.append(table);
+
+            $.ajax({
+                url: "http://localhost:5273/odata/Members",
+                type: "get",
+                contentType: "application/json",
+                success: function (result, status, xhr) {
+                    $.each(result.value, function (index, member) {
+                        console.log(result);
+                        var row = $("<tr></tr>").append(
+                            "<td>" + member.Email + "</td>" +
+                            "<td>" + member.CompanyName + "</td>" +
+                            "<td>" + member.City + "</td>" +
+                            "<td>" + member.Country + "</td>" +
+                            "<td>" + member.Password + "</td>"
+                        );
+
+                        var actions = $("<td></td>").append(
+                            '<a href="/Members/Edit/' + member.MemberId + '">Edit</a> | ' +
+                            '<a href="/Members/Details/' + member.MemberId + '">Details</a> | ' +
+                            '<a href="/Members/Delete/' + member.MemberId + '">Delete</a>'
+                        );
+
+
+                        row.append(actions);
+                        tbody.append(row);
+                    });
+                },
+                error: function () {
+                    alert("An error occurred while loading members.");
+                }
+            });
+
+            table.append(thead);
+            table.append(tbody);
+        }
+
+
+        function displayProducts(products) {
+            var productListDiv = $("#memberListDiv");
+            productListDiv.empty();
+
+            if (products && products.length > 0) {
+                var table = $("<table class='table'></table>");
+                var thead = $("<thead></thead>").append(
+                    "<tr>" +
+                    "<th>Email</th>" +
+                    "<th>Comany Name</th>" +
+                    "<th>City</th>" +
+                    "<th>Country</th>" +
+                    "<th>Password</th>" +
+                    "<th></th>" +
+                    "</tr>"
+                );
+                var tbody = $("<tbody></tbody>");
+
+                $.each(members, function (index, member) {
+                    var row = $("<tr></tr>").append(
+                        "<td>" + member.Email + "</td>" +
+                        "<td>" + member.CompanyName + "</td>" +
+                        "<td>" + member.City + "</td>" +
+                        "<td>" + member.Country + "</td>" +
+                        "<td>" + member.Password + "</td>" +
+                        "<td>" +
+                        "<a asp-action='Edit' asp-route-id='" + member.memberId + "'>Edit</a> | " +
+                        "<a asp-action='Details' asp-route-id='" + member.memberId + "'>Details</a> | " +
+                        "<a asp-action='Delete' asp-route-id='" + member.memberId + "'>Delete</a>" +
+                        "</td>"
+                    );
+
+                    tbody.append(row);
+                });
+
+                table.append(thead);
+                table.append(tbody);
+                productListDiv.append(table);
+            } else {
+                productListDiv.append("<h5 class='text-danger text-capitalize'>No Products Were Found</h5>");
+            }
+        }
+    });
+</script>
